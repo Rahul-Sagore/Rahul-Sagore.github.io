@@ -8,12 +8,14 @@
 
 
 }
+/* Css for inner-div  */
 .inner-div{
 	margin: 2px;
-	border-radius: 10px;
+	border-radius: 15px;
 	background:  #C2C2C2;
 
 }
+/* custom css for button*/
 .button{
 
 	width: 200px;
@@ -21,11 +23,12 @@
 	font-size: 20px;
 	font-weight: bold;
 	border: 1px solid;
-	border-radius: 10px;
+	border-radius: 	10px;
 	margin: 7px;
 	box-shadow: 2px 2px 2px grey;
 
 }
+/* Css for making gradient effect */
 #grad {
 	background: -webkit-linear-gradient(#C4C4C4 50%, #B4B4B4 50%); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#C4C4C4 50%, #B4B4B4 50%); /* For Opera 11.1 to 12.0 */
