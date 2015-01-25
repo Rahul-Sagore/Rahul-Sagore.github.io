@@ -1,0 +1,26 @@
+html, body{
+	height: 100%;
+}
+h4{
+	background: #F95122;
+	padding: 20px;
+	color: white;
+	font-family: volkorn; 
+}
+h5{
+	font-size: 16px;
+	color: white;
+	background: green;
+	padding: 10px;
+}
+.wrap{
+	min-height: 600px;
+	margin-bottom: -145px;
+	text-align: center;
+}
+.seatCss{
+	margin-right: 20px;
+}
+footer{
+	height: 145px;
+}

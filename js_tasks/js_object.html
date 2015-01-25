@@ -1,0 +1,91 @@
+
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Task #1 : Front-end Developer  </title>
+	</head>
+
+	<body>
+	
+		
+	<script src="js/jquery-1.7.2.min.js"></script>	
+	<script>
+
+	  //Initializing array named functions : Will contain all the registered functions
+	  var functions = [];
+
+      //Callback function definition
+      callb = function callb(){
+      	console.log("TimeOut : Callback Function is called");
+      }
+
+      //Object containing methods : register, start, markDone
+      syncFuncs = {
+      	register: function(reg_func){
+        	//Adding registered functions to array
+        	functions.push(reg_func);
+        },
+      	start : function(){
+	      	var deferred = $.Deferred();
+			
+			for(i = 0; i < functions.length; i++){
+	  			functions[i]();
+	      	}
+	      	setTimeout(function() { 
+				  deferred.resolve();
+			}, 3000);
+
+			return deferred.promise();
+      	},
+      	markDone: function(){
+      		console.log("MarkDone : Finished Execution!");
+        }
+  	  }
+
+	  //Registering first function
+	  syncFuncs.register(function () {
+		$.ajax({
+	 		url: "http://www.coupondunia.in"
+		})
+	 	 .always(function(){ 
+		  console.log("First Function");
+		  syncFuncs.markDone();
+	     });
+	  })
+	  //Registering second function
+	  syncFuncs.register(function () {
+		$.ajax({
+	 		url: "http://api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&cluster=yes",
+			success: function(result){
+				console.log(result);
+			}
+		})
+	 	 .always(function(){ 
+		  console.log("Second Function");
+		  syncFuncs.markDone();
+	     });
+	  })
+	  //Registering third function
+	  syncFuncs.register(function () {
+		$.ajax({
+	 		url: "http://www.coupondunia.in"
+		})
+	 	 .always(function(){ 
+		  console.log("Third Function");
+		  syncFuncs.markDone();
+	     });
+	  })
+
+	  //calling start method of the object
+      syncFuncs.start().done(function(){
+      		callb();
+      })
+
+	</script>
+
+	</body>
+	
+</html>

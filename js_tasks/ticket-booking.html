@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Task #2 : Front-end Developer  </title>
+
+		<!-- Lightweight Mobile responsive framework -->
+		<link rel="stylesheet" href="css/skeleton.css"/>
+		<!-- Link for custom css -->
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+		
+	  <!-- Main wrapper  -->
+	  <div class="wrap">
+			<!-- heading -->
+		<h4>Multiplex Ticket Booking</h4>
+
+		<div class="container">
+		   <div class="five columns">
+		   	  <h5>Enter No. of tickets</h5>
+			  <form id="ticket_form" name="ticket_form">
+			    <input type="text" id="no_of_tickets" placeholder="Enter no. of Ticket(s)"/><br>
+
+			    <label>Select Ticket Type</label>
+			    <select id="ticket_type">
+				  <option selected>select</option>
+				  <option value="Gold">Gold</option>
+				  <option value="Silver">Silver</option>
+				  <option value="Bronze">Bronze</option>
+			    </select><br/>
+			    <input type="button" id="proceed" value="Proceed" />
+			  </form>
+		   </div><!-- End of five-column class -->
+
+		   <!-- Visual Seat Picker -->
+		  <div class="seven columns">
+		  	<h5>Seat Category : <span id="seat_type"></span></h5>
+		  	<p class="visual">
+
+		  	</p>
+		  </div><!-- End of seven-column class -->
+		</div><!-- End of container class -->
+	  </div><!-- End of wrap class -->
+
+
+	  <!-- Footer -->
+	  <footer>
+		By Rahul Sagore . View source at <a href="#">Github</a>
+	  </footer>
+	  
+	  <!-- Javascript link for jQuery & custom script -->
+	  <script src="js/jquery-1.7.2.min.js"></script>	
+	  <script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+	
+</html>
