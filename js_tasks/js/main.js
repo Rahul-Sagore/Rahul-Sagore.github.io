@@ -27,13 +27,13 @@ $(function(){
   });
 
 //Function : when user selects seats
-  $('.visual').on('click', '.seatCss', function(){
-    $('.seatCss').prop("disabled", false);
+  $('.visual').on('click', '.visual div', function(){
+    $('.selectedSeat').prop("class", "seatCss");
     var no = $('#no_of_tickets').val();
     id = this.id;
     for(i = 0; i < no; i++){
       next_id = parseInt(id) + i;
-      $('#'+next_id).prop("disabled", true);
+      $('#'+next_id).prop("class", "selectedSeat");
     }
     //split(id);
   });
@@ -45,7 +45,7 @@ function generate_seatmap(outer, inner, type){
     for(j = 1; j <= inner; j++){
       //uniq_id = type + i.toString() + j.toString();
       uniq_id = i.toString() + j.toString();
-      $('.visual').append(i,j + ' <input type="checkbox" id="'+uniq_id+'" class="seatCss"/>');
+      $('.visual').append(' <div id="'+uniq_id+'" class="seatCss"></div>');
     }
     $('.visual').append("<br/>");
   }
