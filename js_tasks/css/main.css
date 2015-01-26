@@ -18,8 +18,24 @@ h5{
 	margin-bottom: -145px;
 	text-align: center;
 }
+.visual{
+	background: grey;
+	padding: 30px;
+	padding-left: 80px;
+}
 .seatCss{
-	margin-right: 20px;
+	float: left;
+	margin-right: 30px;
+	width: 15px;
+	height: 15px;
+	background: white;
+}
+.selectedSeat{
+	float: left;
+	margin-right: 30px;
+	width: 15px;
+	height: 15px;
+	background: green;
 }
 footer{
 	height: 145px;
