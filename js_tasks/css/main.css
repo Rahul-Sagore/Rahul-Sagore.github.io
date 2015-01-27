@@ -2,15 +2,16 @@ html, body{
 	height: 100%;
 }
 h4{
-	background: #F95122;
+	background: rgb(51,195,240);
 	padding: 20px;
 	color: white;
 	font-family: volkorn; 
 }
 h5{
-	font-size: 16px;
+	font-size: 18px;
+	font-weight: bold;
 	color: white;
-	background: green;
+	background: grey;
 	padding: 10px;
 }
 .wrap{
@@ -36,6 +37,13 @@ h5{
 	width: 15px;
 	height: 15px;
 	background: green;
+}
+.bookedSeat{
+	float: left;
+	margin-right: 30px;
+	width: 15px;
+	height: 15px;
+	background: red;
 }
 footer{
 	height: 145px;
