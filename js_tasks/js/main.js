@@ -1,6 +1,8 @@
 //Custom javascript for seat booking
 //defining N x N seats in the seat type
 var setting = {"Gold": [7, 5], "Silver": [5, 6], "Bronze": [6, 7]};
+//Array containing ids of seats, which are booked
+var booked_seat = [11, 35, 56, 67];
 
 $(function(){
   
@@ -21,9 +23,13 @@ $(function(){
     //outer_sentinel = Number of rows, inner_sentinel = Number of columns
   	outer_sentinel = setting[ticket_type][0];
   	inner_sentinel = setting[ticket_type][1];
-
+//console.log(booked_seat.length);
     //Calling seatmap generator function
     generate_seatmap(outer_sentinel, inner_sentinel, ticket_type);
+    //Applying css for pre-booked seat
+    for(i = 0; i < booked_seat.length; i++){
+      $('#'+booked_seat[i]).prop("class", "bookedSeat");
+    }
 
   });
 
@@ -38,11 +44,17 @@ $(function(){
     if(!check){
      for(i = 0; i < no; i++){
        next_id = parseInt(id) + i;
-       $('#'+next_id).prop("class", "selectedSeat");
+       //Checking if adjacents seat is not booked
+       if($('#'+next_id).hasClass('bookedSeat')){
+         alert("Oops! Sorry, "+no+" adjacents seats are not available !");
+       }
+       else{
+         $('#'+next_id).prop("class", "selectedSeat");
+       }
      }
     }
     else{
-      alert("Can not select seat: Silos Condition");
+      alert("Can not select seat: Silos Condition or not adjacent seats");
     }
   });
 });
@@ -62,9 +74,17 @@ function generate_seatmap(outer, inner, type){
 function check_silos(no, type, id){
   if(no == (setting[type][1] - 2)){
     for(i = 1; i <= setting[type][0]; i++){
-      console.log(id.toString(), i.toString() + "2");
+      //Checking if user selected second column for silos condition to occur
       if(id.toString() == (i.toString() + '2')){
-        return true
+        //Checking if last seat is booked or not
+        last_id = parseInt(id) + parseInt(no);
+        alternative = document.getElementById(last_id).classList.contains("bookedSeat");
+        if(alternative){
+          return false;
+        }
+        else{
+          return true;
+        }
       }
     }
   }
