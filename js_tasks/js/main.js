@@ -1,13 +1,13 @@
 //Custom javascript for seat booking
-
 //defining N x N seats in the seat type
+var setting = {"Gold": [7, 5], "Silver": [5, 6], "Bronze": [6, 7]};
+
 $(function(){
-  var setting = {"Gold": [7, 5], "Silver": [5, 6], "Bronze": [6, 7]};
   
   //Initially hiding seat view
   $('div .seven').hide();
 
-  //onChange event on seat category selection
+  //After filling form showing seatmap
   $('#proceed').on('click', function(){
 
     var number_of_tickets = $('#no_of_tickets').val();
@@ -17,7 +17,8 @@ $(function(){
   	//Removing previous category
   	$('.visual').html("");
 
-  	//Setting sentinel for performance optimization
+  	//Setting sentinel beofrehand for performance optimization
+    //outer_sentinel = Number of rows, inner_sentinel = Number of columns
   	outer_sentinel = setting[ticket_type][0];
   	inner_sentinel = setting[ticket_type][1];
 
@@ -30,14 +31,20 @@ $(function(){
   $('.visual').on('click', '.visual div', function(){
     $('.selectedSeat').prop("class", "seatCss");
     var no = $('#no_of_tickets').val();
-    id = this.id;
-    for(i = 0; i < no; i++){
-      next_id = parseInt(id) + i;
-      $('#'+next_id).prop("class", "selectedSeat");
+    var type = $('#ticket_type').val();
+    var id = this.id;
+    check = check_silos(no, type, id);
+    //loop for selecting adjacent seats, based on number of seats
+    if(!check){
+     for(i = 0; i < no; i++){
+       next_id = parseInt(id) + i;
+       $('#'+next_id).prop("class", "selectedSeat");
+     }
     }
-    //split(id);
+    else{
+      alert("Can not select seat: Silos Condition");
+    }
   });
-
 });
 
 function generate_seatmap(outer, inner, type){
@@ -51,6 +58,14 @@ function generate_seatmap(outer, inner, type){
   }
 }
 
-//window.addEventListener("load", init, false);
-	
-	
+//Function for checking silos condition
+function check_silos(no, type, id){
+  if(no == (setting[type][1] - 2)){
+    for(i = 1; i <= setting[type][0]; i++){
+      console.log(id.toString(), i.toString() + "2");
+      if(id.toString() == (i.toString() + '2')){
+        return true
+      }
+    }
+  }
+}
