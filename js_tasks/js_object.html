@@ -16,10 +16,11 @@
 
 	  //Initializing array named functions : Will contain all the registered functions
 	  var functions = [];
+	  var requests = [];
 
       //Callback function definition
-      callb = function callb(){
-      	console.log("TimeOut : Callback Function is called");
+      var callb = function callb(msg){
+      	console.log(msg + ": Callback Function is called");
       }
 
       //Object containing methods : register, start, markDone
@@ -28,17 +29,23 @@
         	//Adding registered functions to array
         	functions.push(reg_func);
         },
-      	start : function(){
-	      	var deferred = $.Deferred();
-			
-			for(i = 0; i < functions.length; i++){
-	  			functions[i]();
-	      	}
-	      	setTimeout(function() { 
-				  deferred.resolve();
-			}, 3000);
+      	start : function(time){
 
-			return deferred.promise();
+			//Looping over array of functions
+			for(i = 0; i < functions.length; i++){
+		      var f = functions[i](); //calling each ajax functions
+		      requests.push(f);
+		    }
+		    //Waiting for all the function to execute then on 'done' calling callback
+		    $.when.apply(null, requests).done(function(){
+		    	callb("After All functions");
+		    });
+
+		    //Setting timout to callback function
+		    setTimeout(function() { 
+	          callb("After Timout");
+	        }, time);
+
       	},
       	markDone: function(){
       		console.log("MarkDone : Finished Execution!");
@@ -47,8 +54,9 @@
 
 	  //Registering first function
 	  syncFuncs.register(function () {
-		$.ajax({
-	 		url: "http://www.coupondunia.in"
+		return $.ajax({
+			//url for getting weather data in json format
+	 		url: "http://api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&cluster=yes"
 		})
 	 	 .always(function(){ 
 		  console.log("First Function");
@@ -57,7 +65,7 @@
 	  })
 	  //Registering second function
 	  syncFuncs.register(function () {
-		$.ajax({
+		return $.ajax({
 	 		url: "http://api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&cluster=yes",
 			success: function(result){
 				console.log(result);
@@ -70,8 +78,8 @@
 	  })
 	  //Registering third function
 	  syncFuncs.register(function () {
-		$.ajax({
-	 		url: "http://www.coupondunia.in"
+		return $.ajax({
+	 		url: "http://api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&cluster=yes"
 		})
 	 	 .always(function(){ 
 		  console.log("Third Function");
@@ -79,10 +87,8 @@
 	     });
 	  })
 
-	  //calling start method of the object
-      syncFuncs.start().done(function(){
-      		callb();
-      })
+	  //calling start method of the object, with timeout parameter 
+      syncFuncs.start(3000);
 
 	</script>
 
