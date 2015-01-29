@@ -58,6 +58,8 @@ function generate_seatmap(outer, inner, type){
         next_id = parseInt(id) + i;
         //Checking if adjacents seat is not booked
         if($('#'+next_id).hasClass('bookedSeat')){
+	        $('.selectedSeat').prop("class", "seatCss");
+          i = no;
           alert("Oops! Sorry, "+no+" adjacents seats are not available !");
         }
         else{
@@ -80,8 +82,8 @@ function check_silos(no, type, id){
         //Checking if last or first seat is booked or not
         first_id = parseInt(id) - 1;
         last_id = parseInt(id) + parseInt(no);
-        alternative_first = document.getElementById(first_id).classList.contains("bookedSeat");
-        alternative_last = document.getElementById(last_id).classList.contains("bookedSeat");
+        alternative_first = $('#'+first_id).hasClass("bookedSeat");
+        alternative_last = $('#'+last_id).hasClass("bookedSeat");
         if(alternative_first || alternative_last){
           return false;
         }
