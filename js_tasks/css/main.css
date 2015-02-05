@@ -11,16 +11,16 @@ h5{
 	font-size: 18px;
 	font-weight: bold;
 	color: white;
-	background: grey;
+	background: rgb(61,52,52);
 	padding: 10px;
 }
 .wrap{
 	min-height: 630px;
-	margin-bottom: -100px;
+	margin-bottom: -30px;
 	text-align: center;
 }
 .visual{
-	background: grey;
+	background: rgb(61,52,52);
 	padding: 30px;
 	padding-left: 80px;
 }
@@ -46,7 +46,7 @@ h5{
 	background: red;
 }
 .info{
-	background: grey;
+	background: rgb(61,52,52);
 	height:20px;
 	padding: 5px;
 }
@@ -54,9 +54,12 @@ div > span{
 	font-weight: bold;
 }
 footer{
-	height: 100px;
+	height: 40px;
 	color: white;
 	text-align: center;
-	padding: 30px;
+	padding: 5px;
 	background: #3D3434;
+}
+ul{
+	text-align: justify;
 }
