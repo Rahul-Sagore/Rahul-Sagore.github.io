@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-app="app">
+<body ng-app="lazyloader" ng-controller="MainController as main">
 <!-- ng-app tells angular that everything within the DOM under body is part of AngularJS application called app -->
-<!-- You can have many controllers per document and many controllers governing the same section of a document -->
+
 	<div class="container">
 
 		<h5> Lazy loading in AngularJS</h5>
+		{{ insta_data }}
 
 	</div><!-- ./container class -->
 
