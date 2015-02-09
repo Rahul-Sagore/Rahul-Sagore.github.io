@@ -1,65 +1,6 @@
-html, body{
-	height: 100%;
+.tag{
+	margin-left: 10px;
 }
-h4{
-	background: rgb(51,195,240);
-	padding: 15px;
-	color: white;
-	font-family: volkorn; 
-}
-h5{
-	font-size: 18px;
-	font-weight: bold;
-	color: white;
-	background: rgb(61,52,52);
-	padding: 10px;
-}
-.wrap{
-	min-height: 630px;
-	margin-bottom: -30px;
-	text-align: center;
-}
-.visual{
-	background: rgb(61,52,52);
-	padding: 30px;
-	padding-left: 80px;
-}
-.seatCss{
-	float: left;
-	margin-right: 30px;
-	width: 15px;
-	height: 15px;
-	background: white;
-}
-.selectedSeat{
-	float: left;
-	margin-right: 30px;
-	width: 15px;
-	height: 15px;
-	background: green;
-}
-.bookedSeat{
-	float: left;
-	margin-right: 30px;
-	width: 15px;
-	height: 15px;
-	background: red;
-}
-.info{
-	background: rgb(61,52,52);
-	height:20px;
-	padding: 5px;
-}
-div > span{
-	font-weight: bold;
-}
-footer{
-	height: 40px;
-	color: white;
-	text-align: center;
-	padding: 5px;
-	background: #3D3434;
-}
-ul{
-	text-align: justify;
+.similar{
+
 }

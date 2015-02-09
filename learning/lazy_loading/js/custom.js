@@ -1,4 +1,4 @@
-/*Defining angularJS module/app */
+/*Defining angularJS module/app/controller */
   angular.module("lazyApp", [])
     .factory('instagram', ['$http',
         function($http) {
@@ -10,7 +10,6 @@
 	                    var url = "https://api.instagram.com/v1/tags/"+tag+"/media/recent?callback=JSON_CALLBACK&count=20?client_id=9d918a36b4ea4648880a738450a4f5c4&access_token=1696587752.9d918a3.eaf6363308074b069c37b52b6e085201";
 	                    /* Making calls using $http object*/
 	                    $http.jsonp(url).success(function(response) {
-	                    	console.log(response);
 	                        callback(response.data);
 	                    });
 	                }
@@ -45,13 +44,12 @@
         });
       };
       $scope.suggestion = function(tag){
-        //getting suggestions from JSON wordlist
-        $scope.tag = tag;
-        tag_sliced = tag.slice(0,3);
+        //getting similar terms from JSON wordlist
+        $scope.tag = tag; //Updating tag value based on suggestion
+        tag_sliced = tag.slice(0,3); //Slicing first three letters from tag to match
         $scope.suggestions = [];
         $http.get('wordlist.json')
         .success(function (response) {
-              console.log("response ", response["wordlist"][0]);
               wordlist = response["wordlist"];
               length = wordlist.length;
               for(i = 0; i<length; i++){
@@ -63,4 +61,4 @@
       }
 
       $scope.getMore();
-    });
+});
