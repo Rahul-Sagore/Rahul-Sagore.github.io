@@ -24,6 +24,7 @@
       $scope.search = function(tag){
       	/*Funcion for */
       	$scope.pics = [];
+        $scope.have = [];
       	$scope.getMore(tag);
       }
       $scope.getMore = function(tag) {
