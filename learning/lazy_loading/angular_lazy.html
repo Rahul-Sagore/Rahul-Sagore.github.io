@@ -15,14 +15,13 @@
 	<div class="container">
 	
 		<h4>Implementation of lazy loading in AngularJs</h4>
-		<input type="text" ng-model="tag" placeholder="Enter Search Tag">
+		<input type="text" ng-model="tag" class="required" placeholder="Enter Search Tag">
 		<button ng-click="search(tag)" class="button button-primary">Search</button>
 		{{pics.length}} Results till now : {{ tag }}
-		<!-- Button to render more images on demand -->
-		<button type="button" ng-click="getMore(tag)">
-		  Click to see more pictures?
-		</button>
-
+		
+		<div ng-if="dataLoading">
+		    Loading...
+		</div>
 		<div class="row">
 			<div ng-repeat="p in pics">
 			  <div class="col-md-3">
@@ -32,6 +31,10 @@
 				<span>Likes: {{p.likes.count}}</span> 
 			  </div>     
 		    </div>
+		    <!-- Button to render more images on demand -->
+			<button type="button" ng-click="getMore(tag)" ng-if="dataLoading" class="button button-primary">
+			  Load More Results..
+			</button><br><br><br>
 		</div><!-- ./row -->
 
     </div><!-- ./container -->
