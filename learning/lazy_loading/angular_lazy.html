@@ -17,11 +17,20 @@
 		<h4>Implementation of lazy loading in AngularJs</h4>
 		<input type="text" ng-model="tag" class="required" placeholder="Enter Search Tag">
 		<button ng-click="search(tag)" class="button button-primary">Search</button>
+
 		{{pics.length}} Results till now : {{ tag }}
+
+		<br><span ng-if="dataLoading">Similar terms: </span>
+		<span ng-if="dataLoading" ng-repeat="tag in suggestions">
+			<span ng-if="suggentions.length">None</span>
+			<a href="" ng-click="search(tag)">{{ tag }}</a>
+		</span>
 		
 		<div ng-if="dataLoading">
 		    Loading...
 		</div>
+
+		<!-- Showing result -->
 		<div class="row">
 			<div ng-repeat="p in pics">
 			  <div class="col-md-3">
