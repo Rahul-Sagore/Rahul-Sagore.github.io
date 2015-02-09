@@ -2,7 +2,6 @@
   angular.module("lazyApp", [])
     .factory('instagram', ['$http',
         function($http) {
-
         	/*Function for making call to Instagram API for images*/
             return {
                 fetchTag: function(tag, callback) {
@@ -19,7 +18,7 @@
             }
         }
     ])
-    .controller("lazyController", function($scope, $interval, instagram) {
+    .controller("lazyController", function($scope, $http, $interval, instagram) {
       $scope.pics = [];
       $scope.have = [];
       $scope.search = function(tag){
@@ -28,6 +27,7 @@
           $scope.dataLoading = true;
           $scope.pics = [];
           $scope.have = [];
+          $scope.suggestion(tag);
           $scope.getMore(tag);
         }
         else{
@@ -44,6 +44,23 @@
             }
         });
       };
-      $scope.getMore();
+      $scope.suggestion = function(tag){
+        //getting suggestions from JSON wordlist
+        $scope.tag = tag;
+        tag_sliced = tag.slice(0,3);
+        $scope.suggestions = [];
+        $http.get('wordlist.json')
+        .success(function (response) {
+              console.log("response ", response["wordlist"][0]);
+              wordlist = response["wordlist"];
+              length = wordlist.length;
+              for(i = 0; i<length; i++){
+                if(wordlist[i].startsWith(tag_sliced) && wordlist[i] != tag ){
+                  $scope.suggestions.push(wordlist[i]);
+                }
+              }
+        });
+      }
 
+      $scope.getMore();
     });
