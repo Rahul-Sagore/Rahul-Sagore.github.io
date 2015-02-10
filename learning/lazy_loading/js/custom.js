@@ -46,14 +46,14 @@
       $scope.suggestion = function(tag){
         //getting similar terms from JSON wordlist
         $scope.tag = tag; //Updating tag value based on suggestion
-        tag_sliced = tag.slice(0,3); //Slicing first three letters from tag to match
+        tag_sliced = tag.slice(0,3).toLowerCase(); //Slicing first three letters from tag to match
         $scope.suggestions = [];
         $http.get('wordlist.json')
         .success(function (response) {
               wordlist = response["wordlist"];
               length = wordlist.length;
               for(i = 0; i<length; i++){
-                if(wordlist[i].startsWith(tag_sliced) && wordlist[i] != tag ){
+                if(wordlist[i].startsWith(tag_sliced) && wordlist[i] != tag.toLowerCase() ){
                   $scope.suggestions.push(wordlist[i]);
                 }
               }
