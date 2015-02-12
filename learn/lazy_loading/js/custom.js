@@ -1,6 +1,6 @@
 
 /*Defining angularJS module/app/controller */
-  angular.module("lazyApp", ['infinite-scroll'])
+  angular.module("lazyApp", [])
     .factory('instagram', ['$http',
         function($http) {
         	/*Function for making call to Instagram API for images*/
@@ -63,20 +63,17 @@
       
       $scope.getMore();
 }).directive('whenScrolled', function() {
+    //custom directive for scrolling event
     return function(scope, elm, attr) {
         var raw = elm[0];
 
         var funCheckBounds = function(evt) {
-            console.log("event fired: " + evt.type);
             var rectObject = raw.getBoundingClientRect();
             if (rectObject.bottom === window.innerHeight) {
                 scope.$apply(attr.whenScrolled);
             }
-
         };
         
         angular.element(window).bind('scroll load', funCheckBounds);
-        
-        
     };
 });
