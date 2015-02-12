@@ -31,7 +31,7 @@
 		</div>
 
 		<!-- Showing result -->
-		<div class="row">
+		<div class="row" when-scrolled="getMore(tag)">
 			<div ng-repeat="p in pics">
 			  <div class="col-md-3">
 				<a href="{{p.link}}" target="_blank">
@@ -41,9 +41,9 @@
 			  </div>     
 		    </div>
 		    <!-- Button to render more images on demand -->
-			<button type="button" ng-click="getMore(tag)" ng-if="dataLoading" class="button button-primary">
+			<!-- <button type="button" ng-click="getMore(tag)" ng-if="dataLoading" class="button button-primary">
 			  Load More Results..
-			</button><br><br><br>
+			</button><br><br><br> -->
 		</div><!-- ./row -->
 
     </div><!-- ./container -->
@@ -51,5 +51,6 @@
     <!-- Js link for angularJs  & Angular module/Controller -->
 	<script src="js/angular.min.js"></script> 
 	<script src="js/custom.js"></script>
+	<script src="js/ng-infinite-scroll.min.js"></script>
 </body>
 </html>
