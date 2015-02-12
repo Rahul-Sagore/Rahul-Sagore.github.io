@@ -66,7 +66,7 @@
     //custom directive for scrolling event
     return function(scope, elm, attr) {
         var raw = elm[0];
-
+        console.log(attr);
         var funCheckBounds = function(evt) {
             var rectObject = raw.getBoundingClientRect();
             if (rectObject.bottom === window.innerHeight) {
@@ -74,6 +74,6 @@
             }
         };
         
-        angular.element(window).bind('scroll load', funCheckBounds);
+        angular.element(window).bind('scroll', funCheckBounds);
     };
 });
