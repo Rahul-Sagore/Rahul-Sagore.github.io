@@ -1,6 +1,7 @@
 .tag{
 	margin-left: 10px;
 }
-.similar{
-
+.message{
+	color:red;
+	font-weight: bold;
 }
