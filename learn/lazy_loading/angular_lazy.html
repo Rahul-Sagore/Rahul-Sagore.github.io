@@ -16,7 +16,7 @@
 	<div class="container">
 	
 		<h4>Implementation of lazy loading in AngularJs</h4>
-		<input type="text" ng-model="tag" class="required" placeholder="Enter Search Tag">
+		<input type="text" ng-model="tag" class="required" placeholder="Enter Search Tag" ng-keypress="($event.which === 13)?search(tag):0">
 		<button ng-click="search(tag)" class="button button-primary">Search</button>
 
 		Results till now : {{pics.length}} {{ tag }}
