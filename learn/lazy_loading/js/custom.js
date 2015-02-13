@@ -25,7 +25,7 @@
       $scope.search = function(tag){
       	/*Funcion for removing previous search and searching new*/
         if(typeof tag !== "undefined"){
-          $scope.dataLoading = true;
+          $scope.loadMessage = "Loading...";
           $scope.pics = [];
           $scope.have = [];
           $scope.suggestion(tag);
@@ -43,6 +43,9 @@
                 $scope.pics.push(data[i]) ;
                 $scope.have[data[i].id] = "1";
               }
+            }
+            if(next === undefined){
+              $scope.loadMessage = "No image found to load";
             }
         });
       };
