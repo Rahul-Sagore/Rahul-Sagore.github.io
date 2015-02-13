@@ -36,13 +36,7 @@
 				<span>Likes: {{p.likes.count}}</span> 
 			  </div>     
 		    </div>
-		    <div ng-if="dataLoading">
-			    Loading...
-			</div>
-		    <!-- Button to render more images on demand -->
-			<!-- <button type="button" ng-click="getMore(tag)" ng-if="dataLoading" class="button button-primary">
-			  Load More Results..
-			</button><br><br><br> -->
+		    <p class="message">{{ loadMessage }}</p>
 		</div><!-- ./row -->
 
     </div><!-- ./container -->
