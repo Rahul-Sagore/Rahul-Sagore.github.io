@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
  <head>
  	<meta charset="UTF-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +11,18 @@
 <!-- Defining scope of angular app using ng-app-->
 <body ng-app="lazyApp" ng-controller="lazyController">
 
+	<h5 id="header">Lazy Loading of Instagram Photos - Angular.js</h5>
 	<!-- Iterating instagram images using ng-repeat directive -->
 	<div class="container">
-	
-		<h4>Implementation of lazy loading in AngularJs</h4>
-		<input type="text" ng-model="tag" class="required" placeholder="Enter Search Tag" ng-keypress="($event.which === 13)?search(tag):0">
+		<input type="text" ng-model="tag" class="required" placeholder="Enter Search Tag" ng-keypress="($event.which === 13)?search(tag):0" size="50">
 		<button ng-click="search(tag)" class="button button-primary">Search</button>
 
-		Results till now : {{pics.length}} {{ tag }}
-
-		<br><span ng-if="dataLoading">Similar terms: </span>
-		<span ng-if="dataLoading" ng-repeat="tag in suggestions" class="similar">
-			<a href="" ng-click="search(tag)" class="tag">{{ tag }}</a>
-		</span>
+		<span ng-if="pics.length" class="resultMsg">Showing {{pics.length}} results for "{{ tag }}"</span><br>
+		<div ng-if="suggestions.length">Similar terms:
+			<span ng-repeat="tag in suggestions" class="similar">
+				<a href="" ng-click="search(tag)" class="tag">{{ tag }}</a>
+			</span>
+		</div><br>
 
 		<!-- Showing result -->
 		<div class="row" when-scrolled="getMore(tag, next)">
@@ -36,9 +34,8 @@
 				<span>Likes: {{p.likes.count}}</span> 
 			  </div>     
 		    </div>
-		    <p class="message">{{ loadMessage }}</p>
+		    <div class="message">{{ loadMessage }}</div>
 		</div><!-- ./row -->
-
     </div><!-- ./container -->
 
     <!-- Js link for angularJs  & Angular module/Controller -->
