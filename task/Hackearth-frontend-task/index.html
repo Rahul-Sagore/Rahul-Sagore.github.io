@@ -32,10 +32,6 @@
                 <!-- Search Bar, Sort By, Total likes section -->
                 <div class="mdl-grid mdl-grid-padding">
                     <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone mdl-cell--2-col-tablet">
-                        <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="sample3" ng-model="search.tags">
-                            <label class="mdl-textfield__label logo-text" for="sample3">Search By Tags...</label>
-                        </div> -->{{selectedTags}}
                         <ui-select ng-model="selectedTags" on-select="onSelected($item)">
                             <ui-select-match allow-clear="true" placeholder="Search Tags..">
                                 <span ng-bind="$select.selected.tag"></span>
@@ -63,11 +59,8 @@
                         </div>
                     </div>
                 </div>
-                <div  class="mdl-grid error-message" ng-show="(problems | filter:search).length == 0">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        No result found with " {{search.tags}} " tag! Try a different one.
-                    </div>
-                </div>
+
+                <!-- Main results -->
                 <div class="mdl-grid product-result" ng-if="problems">
                     <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone mdl-cell--4-col-tablet product-card" ng-repeat="problem in problems | filter: selectedTag | orderBy: sortBy:true" ng-if="problem.name">
                         <div class="mdl-grid">
