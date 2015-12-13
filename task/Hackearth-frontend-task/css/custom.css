@@ -5,6 +5,10 @@ html,body {
     line-height: 20px;
 }
 
+h5, .h5 {
+    font-size: 18px;
+}
+
 /*General css*/
 .vmiddle{
     vertical-align: middle
