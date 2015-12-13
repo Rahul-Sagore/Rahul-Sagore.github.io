@@ -173,7 +173,7 @@ a.twitter-text {
 }
 
 .mdl-badge.like {
-    font-size: 35px;
+    font-size: 40px;
     color: red;
 }
 
@@ -184,8 +184,9 @@ a.twitter-text {
 }
 
 .mdl-badge[data-badge]:after {
-    top: 6px;
-    right: 6px;
+    top: 8px;
+    right: 9px;
+    font-size: 14px;
     background: transparent;
 }
 
