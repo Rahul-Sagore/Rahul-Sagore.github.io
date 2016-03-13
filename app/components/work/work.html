@@ -1,0 +1,197 @@
+<div class="main-content" ng-controller="workController as workVm">	
+	<div class="mdl-grid padding-top20">
+		<div class="mdl-cell mdl-cell--12-col">
+			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			  <div class="mdl-tabs__tab-bar">
+			      <a href="#work-panel" class="mdl-tabs__tab is-active">Work</a>
+			      <a href="#project-panel" class="mdl-tabs__tab">Projects</a>
+			      <a href="#course-panel" class="mdl-tabs__tab">Courses</a>
+			  </div>
+
+			  <div class="mdl-tabs__panel is-active" id="work-panel">
+			    <div class="text-pink bold uppercase">&lt; Work Experience &gt;</div><br>
+					<div class="techs">
+						As a Frontend Developer : CSS3, Javascript/Jquery, Angular.js, Material Design Lite, Bootstrap, Handlebars, Grunt & Gulp, SASS
+					</div>
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
+							<div class="work-card-wide mdl-card mdl-shadow--2dp flyrobe">
+							  <div class="mdl-card__title">
+							    <!-- <h2 class="mdl-card__title-text mdl-cell--hide-phone">Flyrobe.com | On Demand Wardrobe</h2> -->
+							  </div>
+							  <div class="mdl-card__supporting-text fr-color">
+							    On Demand Wardrobe
+							  </div>
+							  <div class="mdl-card__actions mdl-card--border">
+							    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://flyrobe.com/#/home">
+							      <span class="fr-color">Flyrobe.com</span>
+							    </a>
+							  </div>
+							</div>
+							<br>
+						</div>
+						<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
+							<div class="work-card-wide mdl-card mdl-shadow--2dp coupondunia">
+							  <div class="mdl-card__title">
+							    <!-- <h2 class="mdl-card__title-text">CouponDunia.in | Coupons ka Boss</h2> -->
+							  </div>
+							  <div class="mdl-card__supporting-text cd-color">
+							    Listing of all coupons at one place.
+							  </div>
+							  <div class="mdl-card__actions mdl-card--border">
+							    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://www.coupondunia.in/">
+							      Coupondunia.in
+							    </a>
+							  </div>
+							</div>
+							<br>
+						</div>
+					</div>
+
+					<div class="techs">
+						As a Web Developer : Python, Flask, node.js, Express.js/Koa.js (Exlporing), Heroku, MySQL, PHP.
+					</div>
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
+							<div class="work-card-wide mdl-card mdl-shadow--2dp scipy">
+							  <div class="mdl-card__title">
+							    <h2 class="mdl-card__title-text">Freelance | Personal work</h2>
+							  </div>
+							  <div class="mdl-card__supporting-text text-darkBlue">
+							    Worked as a FREElance and for personal mini projects
+							  </div>
+							  <div class="mdl-card__actions mdl-card--border">
+							    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="workVm.goToTab('project-panel')">
+							      <span class="text-darkBlue">Go To Projects</span>
+							    </a>
+							  </div>
+							</div>
+							<br>
+						</div>
+					</div>
+				<div class="text-pink bold uppercase">&lt; / Work Experience &gt;</div>
+			  </div>
+			  <div class="mdl-tabs__panel" id="project-panel">
+			    <div class="text-pink bold uppercase">&lt; Projects &gt;</div>
+			    	<br>
+		    		<div class="techs">
+						<div class="inline-block text-orange bold">
+						Estripper : 
+						</div>
+						Python, Flask, Skeleton css, Heroku deployment.
+					</div>
+		    		<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--6-col">
+							<div class="work-card-wide mdl-card mdl-shadow--2dp estripper">
+							  <div class="mdl-card__title">
+							    <h2 class="mdl-card__title-text visible-font">Estripper | Ecommerce Scrapper</h2>
+							  </div>
+							  <div class="mdl-card__supporting-text cd-color">
+							    	Scrapping famous product comparison website
+							  </div>
+							  <div class="mdl-card__actions mdl-card--border">
+							    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://shrouded-peak-9422.herokuapp.com/">
+							      Go To Estripper
+							    </a>
+							  </div>
+							</div>
+							<br>
+						</div>
+					</div>
+			    <div class="text-pink bold uppercase">&lt; / Projects &gt;</div>
+			  </div>
+			  <div class="mdl-tabs__panel" id="course-panel">
+			    	<div class="text-pink bold uppercase">&lt; Courses &gt;</div>
+			    		<br>Online Courses
+			    		<div class="mdl-grid">
+							<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+								<div class="work-card-wide mdl-card mdl-shadow--2dp">
+									<img src="http://www.dijup.com/sites/default/files/styles/blogbanner/public/blog/javascript.png?itok=EqllqQhG">
+								  	<div class="mdl-card__supporting-text cd-color">
+								    	Object Oriented Javascript
+								  	</div>
+								  	<div class="mdl-card__actions mdl-card--border">
+								    	<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								      		Udacity.com
+								    	</a>
+								  	</div>
+								</div>
+								<br>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+								<div class="work-card-wide mdl-card mdl-shadow--2dp">
+									<img src="http://nodeprogram.com/assets/images/enm.jpg">
+								  	<div class="mdl-card__supporting-text cd-color">
+								    	Building Blocks of Express.js
+								  	</div>
+								  	<div class="mdl-card__actions mdl-card--border">
+								    	<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								      		CodeSchool.com
+								    	</a>
+								  	</div>
+								</div>
+								<br>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+								<div class="work-card-wide mdl-card mdl-shadow--2dp">
+									<img src="http://www.technewsable.com/wp-content/uploads/2015/07/Linux.png">
+								  <div class="mdl-card__supporting-text cd-color">
+								    	Introduction to Linux 
+								  </div>
+								  <div class="mdl-card__actions mdl-card--border">
+								    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								      Edx.org | <a href="http://goo.gl/6CPEc9">Verify</a>
+								    </a>
+								  </div>
+								</div>
+								<br>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+								<div class="work-card-wide mdl-card mdl-shadow--2dp">
+									<img src="http://cdn.osxdaily.com/wp-content/uploads/2011/10/learn-sql-databases-stanford-online.jpg">
+								  <div class="mdl-card__supporting-text cd-color">
+								    	Introduction to Database | 62%
+								  </div>
+								  <div class="mdl-card__actions mdl-card--border">
+								    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://class.stanford.edu">
+								      class.stanford.edu
+								    </a>
+								  </div>
+								</div>
+								<br>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+								<div class="work-card-wide mdl-card mdl-shadow--2dp">
+									<img src="http://www.devstrend.com/wp-content/uploads/2016/02/python-libraries.png">
+								  <div class="mdl-card__supporting-text cd-color">
+								    	Learn.. : Crafting Quality Code | 85%
+								  </div>
+								  <div class="mdl-card__actions mdl-card--border">
+								    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://coursera.org">
+								      Coursera.org
+								    </a>
+								  </div>
+								</div>
+								<br>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
+								<div class="work-card-wide mdl-card mdl-shadow--2dp">
+									<img src="http://www.devstrend.com/wp-content/uploads/2016/02/python-libraries.png">
+								  <div class="mdl-card__supporting-text cd-color">
+								    	Learn.. : The Fundamentals | 99.4%
+								  </div>
+								  <div class="mdl-card__actions mdl-card--border">
+								    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="http://coursera.org">
+								      Coursera.org
+								    </a>
+								  </div>
+								</div>
+								<br>
+							</div>
+						</div>
+			    	<div class="text-pink bold uppercase">&lt; / Courses &gt;</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,276 @@
+body, html{
+	background: #272722;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.font-tangerine {
+    font-family: 'Tangerine', serif;
+    font-size: 48px;
+}
+
+/*MDL DESIGN REWRITE*/
+.web-layout-transparent .mdl-layout__header,
+.web-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+.mdl-layout__header-row .mdl-navigation__link {
+    background: #3D3D3A;
+}
+
+.mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
+    background: #171714;
+}
+
+.mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
+     padding-left: 0px; 
+}
+
+.material-icons {
+	vertical-align: middle;
+}
+.mdl-layout__drawer-button .material-icons {
+    vertical-align: inherit;
+}
+
+.mdl-layout__drawer .mdl-navigation__link.active-page, .mdl-layout__header-row .mdl-navigation__link.active-page {
+    background: #272722;
+    color: white;
+    opacity: 1;
+}
+
+.mdl-layout__drawer {
+	border-right: none;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+    background-color: #272722;
+}
+
+.mdl-layout__content {
+  color: white;
+}
+
+.mdl-layout__drawer .mdl-navigation {
+    padding-top: inherit;
+}
+
+/*SUBLIME/General CSS*/
+.tab-bgLayer {
+	background: #171714;
+}
+
+.text-green {
+	color: #A3C336;
+}
+
+.text-pink {
+	color: #D94D68;
+}
+
+.bg-green {
+    background: #009688;
+    color: white;
+}
+
+.fr-color {
+    color: #f44336;
+}
+
+.cd-color {
+    color: #1B5E8B;
+}
+.text-darkBlue {
+  color: #2F3757;
+}
+
+.text-white {
+    color: white;
+}
+.text-orange {
+    color: #DB752B;
+}
+.text-green{
+    color: #57AC6F;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.big-font {
+    font-size: 16px;
+}
+.pull-right {
+    float: right;
+}
+
+.italic {
+	font-style: italic;
+}
+.bold {
+    font-weight: bold;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+.show-none {
+    display: none;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.main-content {
+    padding: 5px 20px;
+}
+
+.tab-key {
+	padding-left: 30px;
+}
+
+.padding-top20 {
+	padding-top: 20px;
+}
+.padding-lr30 {
+    padding: 0 30px;
+}
+.margin-lr30 {
+    margin: 0 30px;
+}
+.padding-bottom10 {
+    padding-bottom: 15px;
+}
+
+.visible-font {
+    color: black;
+    font-weight: bold;
+}
+
+.btn.btn-medium {
+    min-width: 145px;
+    font-size: 13px;
+}
+
+.btn {
+    padding: 12px 0px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.google-btn {
+    background: #eb5e5e;
+}
+.twitter-btn {
+    background: #3EA4EF;
+}
+.github-btn {
+    background: white;
+    color: black;
+}
+.fb-btn {
+    background: #596dae;
+}
+
+.designation {
+    padding-left: 40px;
+}
+
+/*Work Page css*/
+
+.mdl-card {
+  width: 100%;
+}
+
+.work-card-wide .mdl-card__title-text {
+    font-size: 15px;
+}
+
+.work-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 190px;
+}
+.work-card-wide.coupondunia > .mdl-card__title {
+  background: url('../img/CD.jpg') center / cover;
+}
+.work-card-wide.flyrobe > .mdl-card__title {
+  background: url('../img/flyrobe.jpg') center / cover;
+}
+.work-card-wide.scipy > .mdl-card__title {
+    background: url('../img/scipy.jpg') no-repeat;
+    background-size: cover;
+}
+.work-card-wide.estripper > .mdl-card__title {
+    background: url('../img/estripper.png') no-repeat;
+    background-size: cover;
+}
+
+.techs {
+    padding: 0 15px;
+    letter-spacing: .8px;
+}
+
+.mdl-tabs__tab {
+    color: white;
+}
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+    color: #f44336;
+}
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+    background: #f44336;
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__panel.is-active, .mdl-tabs__panel {
+    display: block;
+    padding-top: 30px;
+}
+
+.mdl-tabs__tab-bar {
+    border-bottom: 1px solid #f44336;
+}
+
+#course-panel img {
+    height: 125px;
+}
+
+/*COntact*/
+
+.social-link a {
+    display: inline-block;
+    margin-right: 10px;
+}
+    
+/*TABLET + MOBILE SPECIFIC CSS*/
+@media (max-width: 840px) {
+    .home-page .padding-lr30  {
+        padding: 0;
+    }
+    .mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
+        padding: 0px 50px;
+    }
+    .main-content {
+         padding: 0; 
+    }
+}
+
+/*MOBILE SPECIFIC CSS*/
+@media (max-width: 480px) {
+    .main-content {
+        padding: 5px 0px;
+    }
+    .work-card-wide.flyrobe > .mdl-card__title {
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .work-card-wide > .mdl-card__title {
+        color: #fff;
+        height: 150px;
+    }
+}
