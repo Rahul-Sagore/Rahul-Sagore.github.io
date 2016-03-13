@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="RahulRoutes">
 
 <head>
     <meta charset="utf-8">
+    <meta name="fragment" content="!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>ThatsMe - Rahul Sagore</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <style>
-    	body{
-    		color:black;
-    	}
-    </style>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.0/material.indigo-pink.min.css">
+    <!-- Material Design core CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css?v=20160302-1">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
     
     <!-- Google analytics tracking code -->
     <script>
@@ -34,103 +29,79 @@
     
 </head>
 
-<body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-                <a class="navbar-brand" href="index.html">Rahul Sagore</a>
+<body ng-controlller="MainController as mainVm">
+    <div class="web-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header" >
+        <header class="mdl-layout__header mdl-layout__header--transparent show-none">
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title text-green mdl-cell--hide-desktop font-tangerine">&nbsp; Rahul Sagore</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <!-- <div class="mdl-layout-spacer"></div> -->
+              <!-- Navigation -->
+              <nav class="mdl-navigation  show-none">
+                <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
+                    <i class="material-icons">tag_faces</i> That's Me
+                </a>
+                <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
+                    <i class="material-icons">laptop_mac</i> Work
+                </a>
+                <!-- <a class="mdl-navigation__link" href="">
+                    <i class="material-icons">local_library</i> Blog
+                </a> -->
+                <a class="mdl-navigation__link" href="">
+                    <i class="material-icons">my_location</i> Contact
+                </a>
+              </nav>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">Home</a>
-                    </li>
-                    <li><a href="projects.html">Projects</a>
-                    </li>
-                    <li><a href="blog-list.html">Blog</a>
-                    </li>
-                    <li><a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title bg-green font-tangerine" >
+                Rahul Sagore
+            </span>
+            <span class="designation bg-green padding-bottom10">
+                Frontend Developer
+            </span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
+                    <i class="material-icons">tag_faces</i> That's Me
+                </a>
+                <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
+                    <i class="material-icons">laptop_mac</i> Work
+                </a>
+               <!--  <a class="mdl-navigation__link" href="">
+                    <i class="material-icons">local_library</i> Blog
+                </a> -->
+                <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
+                    <i class="material-icons">my_location</i> Contact
+                </a>
+            </nav>
         </div>
-        <!-- /.container -->
-    </nav>
-
-
-   <div class="container">
-		
-		<!-- Heading -->
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h2 class="page-header text-success">Rahul Sagore
-                    <small style="color:orange">About Me!</small>
-                </h2>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-12">
-                <p><b>HELLO WORLD!</b> <br>Yes you got it right I am a developer, who said that <i>output</i> line after coming to this world.</p>
-                <p>I am Rahul Sagore, born in 1992, persuing MCA at IIPS, DAVV, Indore (India)  and one of the developer of <a href="http://iips.edu.in">IIPS website</a> .</p>
-                <p>I am working voluntarily at Development Centre, IIPS, with soul purpose of learning and contributing to projects of goverment, NPOs, institutes. I work at DC as a Website designer/developer, backend developer, Animator, trainee with cheerful attitude.<p>
-                <p>I am "Open Source" lover and mostly use the open source technology for development. Recently I got more interested in data analysis and BigData/Hadoop for solving social problems. I am also obsessed with "Hacking", not black, white or grey hat type, but for learning and awareness purpose.<p>
-                 <p><b>Favorite quote</b><br> <br>
-                 	<i>"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live"</i> - John Woods<p>
-                
-                <br><h4 class="text-success">God Gifted - I polished</h4>
-                <p>Some other interests I have are - Singing, Drawing & Animation (mostly Japanese Anime).
-                In my spare time I play Table Tennis, Swimming, Reading Novels, Gaming, watching Anime. (Programming too) </p>  
-                
-            </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
-    
-    <div class="container">
-
-        <div class="row well">
-            <div class="col-lg-4 col-md-4">
-                <a class="btn btn-lg btn-primary" href="projects.html">See My Projects!</a>
-            </div>
-        </div>
-        <!-- /.row -->
-
+      <main data-ui-view="" class="mdl-layout__content">
+      </main>
     </div>
     <!-- /.container -->
 
-    <div class="container">
-
-        <hr>
-
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Follow me @ : <a href="http://in.linkedin.com/in/rahulsagore">LinkedIn</a> - <a href="https://twitter.com/Rahulx1">Twitter</a> - <a href="https://github.com/Rahul-Sagore">Github</a></p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-	<script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Javascript Loading -->
+    <script>
+      [
+        'assets/lib/js/angular.min.js',
+        'assets/lib/js/angular-route.min.js',
+        'assets/lib/js/angular-ui-router.min.js',
+        'https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+        'https://storage.googleapis.com/code.getmdl.io/1.1.0/material.min.js',
+        'assets/lib/js/ocLazyLoad.min.js',
+        'assets/lib/js/angular-css.min.js',
+        'app/app.module.js?v=20160301-2',
+        'app/app.route.js?v=20160301-2',
+      ].forEach(function(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.async = false;
+        document.head.appendChild(script);
+      });
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </body>
 
