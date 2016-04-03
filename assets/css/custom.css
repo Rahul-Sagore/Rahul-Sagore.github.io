@@ -48,11 +48,23 @@ body, html{
 }
 
 .mdl-layout__content {
-  color: black;
+    position: relative;
+    color: black;
 }
+
+.mdl-mini-footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
 /*SUBLIME/General CSS*/
 .tab-bgLayer {
 	background: #171714;
+}
+.small-font {
+    font-size: 12px;
 }
 .text-green {
 	color: #A3C336;
@@ -166,6 +178,7 @@ body, html{
 }
 .twitter-btn {
     background: #3EA4EF;
+    color: white;
 }
 .github-btn {
     background: white;
