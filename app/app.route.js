@@ -13,6 +13,7 @@
     var  homeTemplate = 'app/components/home/home.html';
     var  workTemplate = 'app/components/work/work.html';
     var  contactTemplate = 'app/components/contact/contact.html';
+    var  blogTemplate = 'app/components/blog/index.html';
 
     // CSS for View/Directives
     // var suggestedCardCSS = "app/shared/suggested-card/suggested-card.css";
@@ -44,6 +45,24 @@
                 url: '/contact',
                 templateUrl: contactTemplate,
                 // resolve: helper.resolveFor('workController'),
+            })
+            .state('blog', {
+                url: '/blog',
+                templateUrl: blogTemplate,
+                resolve: helper.resolveFor('blogController'),
+            })
+            .state('blogpost', {
+                url: '/:blog_url',
+                parent: 'blog',
+                templateProvider: function ($stateParams, $http, $state) {
+                    return $http.get('./app/components/blog/blogposts/' + $stateParams.blog_url + '.html')
+                      .then(function (data) {
+                        return data.data;
+                      }, function(){
+                        // $state.t
+                      });
+                },
+                resolve: helper.resolveFor('blogController'),
             })
     }
 

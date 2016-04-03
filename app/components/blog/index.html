@@ -1,0 +1,23 @@
+<div ng-controller="blogController as blogVm">
+	<ui-view>
+		<div class="mdl-grid standard-width">
+			<div class="mdl-cell mdl-cell--12-col">
+				<h5>Blog Posts: A way to share your thoughts, experience, knowledge</h5>
+			</div>
+		</div>
+		<div class="mdl-grid standard-width main-content">
+			<div class="mdl-cell mdl-cell--3-col" ng-repeat="blog in blogVm.blogMeta">
+				<div class="blog-card mdl-card mdl-shadow--2dp">
+				  <div class="mdl-card__title">
+				    <img ng-src="{{blog.image}}" width="100%">
+				  </div>
+				  <div class="mdl-card__actions mdl-card--border">
+				    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./#/blog/{{blog.url}}" ng-click="blogVm.initDisqus(blog.url)">
+				      <span class="fr-color">{{blog.title}}</span>
+				    </a>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</ui-view>
+</div>

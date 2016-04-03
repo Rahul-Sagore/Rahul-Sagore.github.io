@@ -11,7 +11,7 @@
     <title>ThatsMe - Rahul Sagore</title>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.0/material.indigo-pink.min.css">
     <!-- Material Design core CSS -->
-    <link rel="stylesheet" href="assets/css/custom.css?v=20160302-1">
+    <link rel="stylesheet" href="assets/css/custom.css?v=20160404-1">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
     
@@ -30,32 +30,51 @@
 </head>
 
 <body ng-controlller="MainController as mainVm">
-    <div class="web-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+    <div class="web-layout-transparent mdl-layout mdl-js-layout
             mdl-layout--fixed-header" >
-        <header class="mdl-layout__header mdl-layout__header--transparent show-none">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
               <!-- Title -->
-              <span class="mdl-layout-title text-green mdl-cell--hide-desktop font-tangerine">&nbsp; Rahul Sagore</span>
+               <span class="mdl-layout-title font-tangerine" >
+                    Rahul Sagore
+                </span>
               <!-- Add spacer, to align navigation to the right -->
-              <!-- <div class="mdl-layout-spacer"></div> -->
+              <div class="mdl-layout-spacer"></div>
               <!-- Navigation -->
-              <nav class="mdl-navigation  show-none">
                 <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
                     <i class="material-icons">tag_faces</i> That's Me
                 </a>
                 <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
                     <i class="material-icons">laptop_mac</i> Work
                 </a>
-                <!-- <a class="mdl-navigation__link" href="">
+                <a class="mdl-navigation__link" ui-sref="blog" ng-class="{'active-page': currentPage == 'blog'}">
                     <i class="material-icons">local_library</i> Blog
-                </a> -->
-                <a class="mdl-navigation__link" href="">
-                    <i class="material-icons">my_location</i> Contact
                 </a>
-              </nav>
+                <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
+                    <i class="material-icons">my_location</i> Contact
+                </a> 
             </div>
-        </header>
-        <div class="mdl-layout__drawer">
+          </header>        
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title font-tangerine" >
+                Rahul Sagore
+            </span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
+                    <i class="material-icons">tag_faces</i> That's Me
+                </a>
+                <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
+                    <i class="material-icons">laptop_mac</i> Work
+                </a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="material-icons">local_library</i> Blog
+                </a>
+                <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
+                    <i class="material-icons">my_location</i> Contact
+                </a>  
+            </nav>
+          </div>
+          <!-- <div class="mdl-layout__drawer">
             <span class="mdl-layout-title bg-green font-tangerine" >
                 Rahul Sagore
             </span>
@@ -69,16 +88,17 @@
                 <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
                     <i class="material-icons">laptop_mac</i> Work
                 </a>
-               <!--  <a class="mdl-navigation__link" href="">
+                <a class="mdl-navigation__link" href="">
                     <i class="material-icons">local_library</i> Blog
-                </a> -->
+                </a> 
                 <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
                     <i class="material-icons">my_location</i> Contact
                 </a>
-            </nav>
+            </nav> -->
+
+            <main data-ui-view="" class="mdl-layout__content">
+            </main>
         </div>
-      <main data-ui-view="" class="mdl-layout__content">
-      </main>
     </div>
     <!-- /.container -->
 
@@ -92,8 +112,8 @@
         'https://storage.googleapis.com/code.getmdl.io/1.1.0/material.min.js',
         'assets/lib/js/ocLazyLoad.min.js',
         'assets/lib/js/angular-css.min.js',
-        'app/app.module.js?v=20160301-2',
-        'app/app.route.js?v=20160301-2',
+        'app/app.module.js?v=20160404-1',
+        'app/app.route.js?v=20160404-1',
       ].forEach(function(src) {
         var script = document.createElement('script');
         script.src = src;

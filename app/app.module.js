@@ -81,6 +81,7 @@ angular.module('RahulApp').constant('APP_REQUIRES', {
     scripts: {
         // 'homeController': ['app/components/home/homeController.js'],
         'workController': ['app/components/work/workController.js'],
+        'blogController': ['app/components/blog/blogController.js'],
     },
     // Angular based script (use the right module name)
     modules: [
@@ -165,7 +166,7 @@ angular.module('RahulApp').provider('RouteHelpers', ['APP_REQUIRES', function (a
         //ViewModal binding using this, instead of $scope
         //Must be use with ControllerAs syntax in view
         mainVm = this;
-
+        console.log(mainVm);
     }
 
     var MainDependency = [
@@ -178,5 +179,11 @@ angular.module('RahulApp').provider('RouteHelpers', ['APP_REQUIRES', function (a
         MainController,
     ];
     angular.module('RahulApp').controller("MainController", MainDependency);
+
+    $(document).ready(function() {
+             $(document).on("click", ".mdl-layout__drawer.is-visible .mdl-navigation__link", function() {
+                $(".mdl-layout__drawer, .mdl-layout__obfuscator").removeClass("is-visible");
+            });
+        })
 
 })();
