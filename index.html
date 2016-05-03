@@ -6,9 +6,9 @@
     <meta name="fragment" content="!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="{{SEO.description}}">
 
-    <title>ThatsMe - Rahul Sagore</title>
+    <title ng-bind="SEO.title">ThatsMe - Rahul Sagore</title>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.0/material.indigo-pink.min.css">
     <!-- Material Design core CSS -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -112,7 +112,7 @@
         'https://storage.googleapis.com/code.getmdl.io/1.1.0/material.min.js',
         'assets/lib/js/ocLazyLoad.min.js',
         'assets/lib/js/angular-css.min.js',
-        'app/app.module.js?v=20160404-1',
+        'app/app.module.js?v=20160503-1',
         'app/app.route.js?v=20160404-1',
       ].forEach(function(src) {
         var script = document.createElement('script');

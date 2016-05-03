@@ -1,6 +1,6 @@
 (function(){
 
-	function blogController($scope, $http, $rootScope, $timeout) {
+	function blogController($scope, $http, $rootScope, $timeout, $state) {
 		blogVm = this;
 
 		// Variable Declaration
@@ -9,6 +9,10 @@
 		// Function Declaration
 	 	blogVm.initDisqus = initDisqus;
 		
+		if($state.current.name == "blogpost")	{
+			article_url = $state.params.blog_url;
+			$rootScope.SEO.title = article_url.split("-").join(" ");
+		}
 
 		blogVm.blogMeta = [
 			{
@@ -35,13 +39,15 @@
 
 
 		// Initializing DISQUS everytime blog post link clicked
-		function initDisqus(post_url) {
+		function initDisqus(post) {
+			$rootScope.SEO.title = post.title;
+			$rootScope.SEO.description = post.title;
 			setTimeout(function() {
 				DISQUS.reset({
 	              reload: true,
 	              config: function () {  
-	                this.page.identifier = post_url;  
-	                this.page.url = "http://rahul-sagore.github.io/#/blog/"+ post_url;
+	                this.page.identifier = post_url.url;  
+	                this.page.url = "http://rahul-sagore.github.io/#/blog/"+ post_url.url;
 	              }
 	            });
 			}, 1000);
@@ -54,6 +60,7 @@
 	    "$http",
 	    "$rootScope",
 	    "$timeout",
+	    "$state",
 	    blogController
 	];
 	angular.module('RahulApp').controller('blogController', blogDependency);

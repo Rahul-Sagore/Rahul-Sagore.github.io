@@ -7,6 +7,10 @@ angular.module('RahulApp', ['ngRoute', 'ui.router', "oc.lazyLoad",])
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
 
+            $rootScope.SEO = {};
+            $rootScope.SEO.title = "Rahul Sagore - Full-stack developer";
+            $rootScope.SEO.description = "Rahul Sagore - Github website";
+
     }]);
 
 // PERORMING ACTION ON VIEW Change
