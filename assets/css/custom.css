@@ -329,6 +329,11 @@ html {
   letter-spacing: 2px;
 }
 
+.vertical-mdl-tabs .mdl-tabs__tab:hover {
+  background: rgba(158, 158, 158, 0.34);
+  color: black;
+}
+
 .vertical-mdl-tabs.mdl-tabs.is-upgraded a.mdl-tabs__tab.is-active {
   border-right: 2px solid #ED462F;
 }
