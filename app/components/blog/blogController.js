@@ -22,7 +22,7 @@
       },
       {
         title: "ES6 Notes",
-        image: "/assets/img/blog/es6.png",
+        image: "/assets/img/blog/ES6.png",
         url: "es6-notes",
       },
     ];
