@@ -16,7 +16,7 @@
     var  blogTemplate = 'app/components/blog/index.html';
 
     // CSS for View/Directives
-    // var suggestedCardCSS = "app/shared/suggested-card/suggested-card.css";
+    var highlightCSS = "assets/css/monokai-sublime.css";
 
     function MainRoutes($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         'use strict';
@@ -49,7 +49,8 @@
             .state('blog', {
                 url: '/blog',
                 templateUrl: blogTemplate,
-                resolve: helper.resolveFor('blogController'),
+                css: highlightCSS,
+                resolve: helper.resolveFor('blogController', 'highlight'),
             })
             .state('blogpost', {
                 url: '/:blog_url',

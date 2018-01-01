@@ -1,0 +1,384 @@
+<link rel="stylesheet" type="text/css" href="assets/css/monokai-sublime.css">
+<h3 class="text-center">ES6 Notes from <a href='https://leanpub.com/understandinges6/read' target="_blank">Understanding ECMAScript 6</a> by Nicholas C. Zakas</h3>
+<div class='mdl-grid standard-width'>
+  <div class="mdl-cell mdl-cell--12-col">
+    <h4>Let/Const & Temporal Dead-Zone</h4>
+
+    <ul>
+      <li>Let and const has block level scope “{}” and variable declaration does not hoist.</li>
+      <li>Temporal Deda-Zone is Unofficial name of the place. Means let and const can not be accesses before it’s declaration (Inside a block scope).</li>
+      <li>Throws reference error on accessing inside same scope. If outside the scope it just gives “undefined”</li>
+      <li>
+        Global let/const declaration does not override properties in Window.
+        <ul>
+          <li><pre><code class="js">let RegEx = “Hi”;</code></pre> Here RegExp is not equal to window.RegExp</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Template Literals</h4>
+    <ul>
+      <li>Use back tick to define string `Holla`</li>
+      <li>This way you can use multi line string</li>
+      <li>Substitution of variable inside string <pre><code class="js">`Helllo, ${Rahul}`</code></pre></li>
+      <li>You can embed calculation, function calls, nested template literals.</li>
+    </ul>
+
+    <h4>Functions & Default Parameter Values</h4>
+    <ul>
+      <li>Now you can define deafult arugment in a function:
+        <pre>
+        <code>function testing(test = “holla”) {
+  console.log(test);
+}</code></pre></li>
+      <li>`arguments.length` inside function will be the no. of argument passed.</li>
+      <li>Changing “test” variable inside function won’t change the arguments[0] value in es6. In es5 it changes arguments value as well in non-strict mode</li>
+      <li>You can use function call in default parameter: `function(test = getValue())`</li>
+      <li>You can also assign previous parameter: function(a, b = a)</li>
+      <li class="bold">Rest Parameter
+        <ul>
+          <li>Three dots preceding  with named param : function pick(object, ...keys)</li>
+          <li>That named parameter becomes an Array containing the rest of the parameters passed to the function</li>
+          <li>There can be only one Rest parameter and it should be the last  one.</li>
+        </ul>
+      </li>
+      <li class="bold">Spread Operator
+        <ul>
+          <li>Similar to Rest. But instead of combining arguments into array, it allow to specify the array that will split and have passed as separate arguments.</li>
+          <pre><code>let values = [25, 50, 75, 100];
+Math.max(...values);</code></pre>
+        </ul>
+      </li>
+      <li class="bold">new.target MetaProperty
+        <ul>
+          <li>Problem: How to check if function is called with new operator</li>
+          <li>`this instanceof Person` fails if ‘this’ passed using .call method</li>
+          <li>new.target : allows you to safely detect if a function is called with new operator. `new.target === Person` or `typeof new.target !== "undefined”`</li>
+        </ul>
+      </li>
+      <li class="bold">Block-level Functions
+        <ul>
+          <li>In strict mode
+            <ul>
+              <li>Can be accessed  only in block in which it is defined</li>
+              <li>Block level functions hoisted to the top of the block, in which they have defined.</li>
+            </ul>
+          </li>
+          <li>In Nonstrict Mode
+            <ul>
+              <li>Instead of hoisting to the top of the block, they got hoisted to the Global scope</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="bold">Arrow Functions</li>
+        <ul>
+          <pre><code>var reflect = value => value;
+
+// effectively equivalent to:
+var reflect = function(value) {
+    return value;
+};</code></pre>
+          <li>Can not be called with new operator. That’s why Prototype property does not exist</li>
+          <li>No `this`. `this` value is determined by the containing function in which the arrow function is defined else global. That is why can not change `this` inside block. call(), apply(), and bind() can still be used but it won’t have any effect on `this`.</li>
+          <li>No `arguments` binding. Rely on named param and `Rest` param</not>
+          <li>No argument: <pre><code>var getName = () => "Nicholas";</code></pre></li>
+          <li>One argument: <pre><code>var reflect = value => value;</code></pre></li>
+          <li>Two argument: <pre><code>var sum = (num1, num2) => num1 + num2;</code></pre> </li>
+        </li>
+<!--       <li class="bold">Tail Call Optimization
+        <ul>
+          <li>A tail call is when a function is called as the last statement in another function</li>
+          <li>Tail call optimization allows some function calls to be optimized in order to keep a smaller call stack, use less memory, and prevent stack overflow errors</li>
+          <li>Es6 can optimise it by removing using current stack, removing current function. Condition:</li>
+            <ul>
+              <li>The tail call does not require access to variables in the current stack frame</li>
+              <li>The function making the tail call has no further work to do after the tail call returns</li>
+              <li>The result of the tail call is returned as the function value</li>
+            </ul>
+          <li>Recursive function, as it can provide a significant performance improvement,</li>
+        </ul>
+      </li> -->
+    </li>
+<!-- 
+    <h4>Expanded Object Functionality</h4>
+    - property initializer shorthand:
+        - When an object property name is the same as the local variable name, you can simply include the name without a colon and value `return { name, age}`
+    - Concise Methods: {name: “Rahul”, sayName() { return this.id;}, }
+    - Computed property names: let person = { [lastName] : “Sagore”}
+    - Object.is(5, 5) instead of “===“. Because NaN === NaN and +0 === -0 gives false.
+    - Object.assign() : a Mixin, one object receives properties and methods from another object.
+            - method accepts any number of suppliers, and the receiver receives the properties in the order in which the suppliers are specified
+            - might overwrite a value from the first supplier
+            - Doesn’t create accessor properties on the receiver when a supplier has (Set, Get)
+            - An accessor property on a supplier will become a data property on the receiver
+            - In ES5 strict mode, duplicate property name gives syntax error. In ES6 there is no error, last one assigned is used
+
+    <h4>Destructuring for Easier Data Access</h4>
+    - destructuring syntax uses an object literal on the left side of an assignment operation let {name, email} = data
+    - Throws error when data is null or undefined
+    - If the same name of variable name does not exist in data as property then undefined is assigned
+    - Nested property: let { loc: { start }} = data; where data = {loc : {start: 1}}
+    - Array Destructuring:
+        - let [frist, second] = [‘red’, ‘green’]
+        - Only second then : [ , second] = [‘red’, ‘green’]
+        - Rest items : [first, …restItmes] = [‘red’, ‘green’, “red”]
+
+    <h4>Symbols and Symbol Properties</h4>
+    - Symbols are primitive data type just like,string, number …
+    - Symbols began as a way to create private object members
+    - You can create a symbol by using the global Symbol function: let firstName = Symbol()
+        - let person = {};
+        - person[firstName] = “Rahul”;
+        - That symbol must be used each time you want to access that same property
+    - Provide description: let firstName = Symbol("first name");
+    - Only console.log(firstName) will print this.
+    - Identifying Symbols : typeof firstName == “symbol”
+    - You can use symbols anywhere you’d use a computed property name
+    - Sharing Symbols throughout the code:
+        - ES6 provides a global symbol registry that you can access at any point in time
+        - Shared symbol should be created using Symbol.for(): let uid = Symbol.for("uid");
+        - Symbol.for() first searches the global symbol registry, if exists then use else create new one.
+        - let uid2 = Symbol.for(“uid”). uid and uid2 will contain same Symbol.
+        - You can get key associated with Symbol by calling Symbole.keyFor(uid2) which will return “uid”
+        - The global symbol registry is a shared environment, just like the global scope. Use namespacing of symbol keys to reduce the likelihood of naming collisions.
+        - ES6 added Object.getOwnPropertySymbols() method to retrieve symbol properties in object
+    <h4>Sets And Maps:</h4>
+    - People used object to as set and maps. (Set is a collection of ordered unique values, and maps is just like key value, to get data based on key)
+    - Problem with object based map is. Object stores each key as string. obj[5]  == obj[“5”]
+    - Sets are created using : let set1 = new Set()
+        - set1.add(5), set1.add(“5”) or set1 = new Set([1, 2, 3])
+        - console.log(set1.size) // 2
+        - If you call add method with same duplicate value it will be ignored
+        - If you Initialise set with array. It will remove duplicate value automatically
+        - set1.has(5) : has method used to check if value exist
+        - .delete(5): method used to delete particular value
+        - .clear() method used to clear whole set
+        - Set can be converted to Array by Spread operator: array = [...set];
+    - Weak Sets
+        - An object stored in an instance of Set is effectively the same as storing that object inside a variable. 
+        - As long as a reference to that Set instance exists, the object cannot be garbage collected to free memory.
+        - weak sets, which only store weak object references and cannot store primitive values.
+        - A weak reference to an object does not prevent garbage collection if it is the only remaining reference.
+        - Weak sets are not iterables
+        - Weak sets do not have a forEach() method. do not have a size property.
+    - Map type is an ordered list of key-value pairs, where both the key and the value can have any type
+        - let map = new Map();
+        - map.set("title", "Understanding ES6");
+        - console.log(map.get("title"));
+        - You can also store object as key.
+        - has(), delete(), clear(), size() works same on map as it does with set.
+        - Map initialization: let map = new Map([["name", "Nicholas"], ["age", 25]]);
+    - Weak Map
+        - a way to store weak object references.
+        - In weak maps, every key must be an object (an error is thrown if you try to use a non-object key), and those object references are held weakly so they don’t interfere with garbage collection.
+        - Similar to weak sets, there is no way to verify that a weak map is empty, because it doesn’t have a sizeproperty. Because there are no remaining references to the key, you can’t retrieve the value by calling the get() method, either. 
+        - There is no clear() method because that would require enumerating keys, and like weak sets, that isn’t possible with weak maps
+
+    <h4>Iterators an Generators</h4>
+    - Iterators are just objects with a specific interface designed for iteration.
+        - All iterators have next() method, which returns result object => {value: ‘some value’, done: false}
+        - The iterator keeps an internal pointer to a location within a collection of values and with each call to the next() method, it returns the next appropriate value.
+    - A generator is a function that returns an iterator.
+        - Generator functions are indicated by a star character (*) after the function keyword and use the new yield keyword. function &generator() { yield 1}
+        - The yield keyword can only be used inside of generators. Else syntax error.
+        - Creating an arrow function that is also a generator is not possible.
+        - The for-of loop: removes the need to track an index into a collection entirely
+        - A for-of loop calls next() on an iterable each time the loop executes and stores the value from the result object in a variable. The loop continues this process until the returned object’s done property is true.
+        - for (let num of values)
+    - Built-in Iterators
+        - Collection Iterators (es6 has 3: Array, Object and Map)
+            - entries() - Returns an iterator whose values are a key-value pair => [“key/index”, “value”]
+            - values() - Returns an iterator whose values are the values of the collection
+            - keys() - Returns an iterator whose values are the keys contained in the collection
+            - The values() method is the default iterator for arrays and sets, while the entries() method is the default iterator for maps.
+            - Weak sets and weak maps, on the other hand, do not have built-in iterators. 
+    - Advanced Iterator Functionality
+        - Passing argument to next():  that argument becomes the value of the yield statement inside a generator.
+    - Delegating Generators
+        - combining the values from two iterators into one is useful
+
+    <h4>Classes</h4>
+    - class className { constructor(name) { this.name = name}}
+    - instead of defining a function as the constructor (Es5), class declarations allow you to define the constructor directly inside the class with the special constructor method name.
+    - Own properties, properties that occur on the instance rather than the prototype, can only be created inside a class constructor or method.  (In this case `name`)
+    - Class declarations, unlike function declarations, are not hoisted. Class declarations act like `let` declarations and so exist in the temporal dead zone until execution reaches the declaration.
+    - All code inside of class declarations runs in strict mode automatically
+    -  you can overwrite the class name outside of the class but not inside a class method
+    - Class Expressions
+        - classes have an expression form that doesn’t require an identifier after class. These class expressions are designed to be used in variable declarations or passed into functions as arguments. 
+        - let PersonClass = class {}
+    - Named Class Expressions
+        - let PersonClass = class PersonClass2 {}
+        - The PersonClass2 identifier exists only within the class definition
+    - Classes as First-Class Citizens
+        - first-class citizen: it can be used as a value, meaning it can be passed into a function, returned from a function, and assigned to a variable.
+    - Accessor Properties
+        - classes allow you to define accessor properties on the prototype.
+        - To create a getter, use the keyword get followed by a space, followed by an identifier; to create a setter, do the same using the keyword set
+    - Computed Member Names:
+        - let methodName = “Say”;  [methodName]() { }
+    - Static Members
+        - Static members are not accessible from instances. You must always access static members from the class directly.
+        - static methodName() {}
+    - Inheritance with Derived Classes
+        - `extends` keyword to specify the function from which the class should inherit.
+        - Derived classes require you to use super() if you specify a constructor; if you don’t, an error will occur.
+        - If you choose not to use a constructor, then super() is automatically called for you with all arguments upon creating a new instance of the class. 
+        - You must call super() before accessing this in the constructor.
+        - If a base class has static members, then those static members are also available on the derived class. 
+    - Shadowing Class Methods
+        - The methods on derived classes always shadow methods of the same name on the base class. 
+        - you can always decide to call the base class version of the method by using the super.getArea()
+    - Inheriting from Built-ins
+        - class MyArray extends Array {}
+        - Symbol.species
+            - if you have a derived class called MyArraythat inherits from Array, methods such as slice() return an instance of MyArray
+            - Behind the scenes, it’s the Symbol.species property that is making this change.
+
+    <h4>Improved Array Capabilities</h4>
+    - Problem: When the Array constructor is passed a single numeric value, the length property of the array is set to that value. If a single non-numeric value or multiple values passed (numeric or not), then those values become items in the array
+    - To make JavaScript arrays easier to create, ECMAScript 6 adds the Array.of() and Array.from() methods.
+    - The Array.of() method always creates an array containing its arguments regardless of the number of arguments or the argument types.
+    - if you have an arguments object (which is array-like) and want to use it like an array
+    - The find() and findIndex() Methods
+        - accept two arguments: a callback function and an optional value to use for this inside the callback function.
+        - The callback function is passed an array element, the index of that element in the array, and the array itself
+        - The callback should return true if the given value matches some criteria you define. 
+        - Both find() and findIndex() also stop searching the array the first time the callback function returns true.
+        - returns the index at which the value was found.
+        - numbers.find(n => n > 33) 
+    - fill(): 
+        - When passed a value, fill() overwrites all of the values in an array with that value.
+        - If you only want to change some of the elements, rather than all of them, you can optionally include a start index and an exclusive end index
+    - copyWithin()
+        - similar to fill(), instead of specifying a single value to assign to array elements, copyWithin() lets you copy array element values from the array itself
+        - you need to pass two arguments to the copyWithin() method: the index where the method should start filling values and the index where the values to be copied begin.
+    - Typed Arrays
+        - special-purpose arrays designed to work with numeric types
+        - created as part of the port to provide fast bitwise arithmetic in JavaScript.
+        - Arithmetic on native JavaScript numbers was too slow for WebGL because the numbers were stored in a 64-bit floating-point format and converted to 32-bit integers as needed.
+        - Typed arrays: single number can be treated like an array of bits and thus can use the familiar methods available on JavaScript arrays.
+        - Typed arrays allow the storage and manipulation of eight different numeric types: 
+            - Signed 8-bit integer (int8), Unsigned 8-bit integer (uint8)
+            - Signed 16-bit integer (int16), Unsigned 16-bit integer (uint16)
+            - Signed 32-bit integer (int32), Unsigned 32-bit integer (uint32)
+            - 32-bit float (float32), 64-bit float (float64).
+        - If you represent a number that fits in an int8 as a normal JavaScript number, you’ll waste 56 bits
+        - Using bits more efficiently is one of the use cases typed arrays address
+        - Array Buffers:
+            - The foundation for all typed arrays is an array buffer, which is a memory location that can contain a specified number of bytes. 
+            - let buffer = new ArrayBuffer(10);   // allocate 10 bytes
+            - console.log(buffer.byteLength);     // 10 
+            - You can also use the slice() method to create a new array buffer that contains part of an existing array buffer.
+            - You can change the data contained within an array buffer, but never the size of the array buffer itself.
+        - Manipulating Array Buffers with Views
+            - views are the interfaces, operates on an array buffer or a subset of an array buffer’s bytes, reading and writing data in one of the numeric data types.
+            - The DataView type is a generic view on an array buffer that allows you to operate on all eight numeric data types.
+            - view = new DataView(buffer);
+            - view = new DataView(buffer, 5, 2); //Byte specific
+            - read-only properties: buffer, byteOffset, byteLength : view1.byteOffset.
+        - Typed arrays don’t inherit from Array and Array.isArray() returns false when passed a typed array.
+
+    <h4>Promises and Asynchronous Programming</h4>
+    - A promise is a placeholder for the result of an asynchronous operation.
+    - The Promise Lifecycle
+        - starting in the pending state (Unsettled)
+        - Once the asynchronous operation completes, the promise is considered settled and enters one of two possible states:
+            - Fulfilled: The promise’s asynchronous operation has completed successfully.
+            - Rejected: The promise’s asynchronous operation didn’t complete successfully due to either an error or some other cause.
+        - An internal [[PromiseState]] property is set to "pending", "fulfilled", or "rejected" to reflect the promise’s state
+    - The then() method is present on all promises and takes two arguments. 
+        -  The first argument is a function to call when the promise is fulfilled. 
+        - The second argument is a function to call when the promise is rejected. 
+    - Promises also have a catch() method that behaves the same as then() when only a rejection handler is passed. 
+    - Each call to then() or catch() creates a new job to be executed when the promise is resolved. But these jobs end up in a separate job queue that is reserved strictly for promises.
+    - New promises are created using the Promise constructor. This constructor accepts a single argument: a function called the executor, which contains the code to initialize the promise.
+        - new Promise(function(resolve, reject) {} )
+        - The executor is passed two functions named resolve() and reject() as arguments.
+        - executor runs immediately. When either resolve() or reject() is called inside the executor, a job is added to the job queue to resolve the promise. This is called job scheduling, Same as setTimeout
+    - The Promise.all() Method
+        - The Promise.all() method accepts a single argument, which is an iterable (such as an array) of promises to monitor, and returns a promise that is resolved only when every promise in the iterable is resolved.
+        - let p4 = Promise.all([p1, p2, p3]);
+        - If any promise passed to Promise.all() is rejected, the returned promise is immediately rejected without waiting for the other promises to complete
+    - The Promise.race() Method
+        - Instead of waiting for all promises to be fulfilled like the Promise.all() method, the Promise.race() method returns an appropriate promise as soon as any promise in the array is fulfilled. 
+
+    <h4>Proxies and the Reflection API</h4>
+    - The language exposes the inner workings of objects through proxies, which are wrappers that can intercept and alter low-level operations of the JavaScript engine.
+    - The Array Problem
+        - An array’s length property is affected when you assign values to specific array items, and you can modify array items by modifying the length property.
+    - What are Proxies and Reflection?
+        - You can create a proxy to use in place of another object (called the target) by calling new Proxy().
+        - The proxy virtualizes the target so that the proxy and the target appear to be the same object to functionality using the proxy.
+        - Proxies allow you to intercept low-level object operations on the target that are otherwise internal to the JavaScript engine.
+        - These low-level operations are intercepted using a trap, which is a function that responds to a specific operation.
+        - The reflection API, represented by the Reflect object, is a collection of methods that provide the default behavior for the same low-level operations that proxies can override. 
+        - There is a Reflect method for every proxy trap. Those methods have the same name and are passed the same arguments as their respective proxy traps
+    - Creating a Simple Proxy
+        - When you use the Proxy constructor to make a proxy, you’ll pass it two arguments: the target and a handler.
+        - A handler is an object that defines one or more traps.
+        - The proxy uses the default behavior for all operations except when traps are defined for that operation.
+        - let target = {};
+        - let proxy = new Proxy(target, {});
+        - When “value” is assigned to the proxy.name property, name is created on target.
+        - The proxy itself is not storing this property; it’s simply forwarding the operation to target
+        - That also means setting target.name to a new value causes proxy.name to reflect the same change.
+
+    <h4>Encapsulating Code With Modules</h4>
+    - ECMAScript 6 was to solve the scope problem and bring some order to JavaScript applications.
+    - Module code automatically runs in strict mode, and there’s no way to opt-out of strict mode
+    - Variables exist only within the top-level scope of the module.
+    - The value of this in the top level of a module is undefined
+    - use the export keyword to expose parts of published code to other modules
+    - You can’t export anonymous functions or classes using this syntax unless you use the default keyword
+    - Basic Importing
+        - import { identifier1, identifier2 } from "./example.js";
+        - The list of bindings to import looks similar to a destructured object, but it isn’t one.
+        - you can’t define another variable with the same name
+    - Importing All of a Module:
+        - import * as example from "./example.js";
+        - All of the exports are then available on that object as properties.
+        - no matter how many times you use a module in import statements, the module will only be executed once.
+    - Subtle Quirk of Imported Bindings
+        - import statements create read-only bindings to variables, functions, and classes rather than simply referencing the original bindings like normal variables
+        - the module that imports the binding can’t change its value, the module that exports that identifier can.
+        - If imported method changes the another imported variable inside exported module, then the change will reflect in imported module as well
+    - Renaming Exports and Imports
+        - export { sum as add };
+        - import { add as sum } from "./example.js";
+    - Default Values in Modules
+        - specified by the default keyword, and you can only set one default export per module.
+        - The default keyword indicates that this is a default export. The function doesn’t require a name because the module itself represents the function.
+        - import sum from "./example.js";
+    - import both non-default and the default function using the following import:
+        - import sum, { color } from "./example.js";
+        - default must come before the non-defaults in the import statement
+        - import { default as sum, color } from "example";
+    - Re-exporting a Binding
+        - export { sum } from "./example.js";
+    - Importing Without Bindings
+        - The shared definitions of built-in objects such as Array and Object are accessible inside a module and changes to those objects will be reflected in other modules.
+        - If you add pushAll method on Array.prototype then you can use like:
+        -  import "./example.js";
+        - Imports without bindings are most likely to be used to create polyfills and shims.
+    - Loading Modules
+        - To support modules, the "module" value was added as a type option. Setting type to "module" tells the browser to load any inline code or code contained in the file specified by src as a module instead of a script.
+        - <script type="module" src="module.js"></script>
+        - browsers ignore &lt;script&gt; elements when the type is unrecognized, so browsers that don’t support modules will automatically ignore the &lt;script type="module"&gt; line, providing good backwards-compatibility.
+        - Module Loading Sequence in Web Browsers
+            - Modules are unique in that, unlike scripts, they may use import to specify that other files must be loaded to execute correctly.
+            - To support that functionality, &lt;script type="module"&gt; always acts as if the deferattribute is applied.
+            - The module file begins downloading as soon as the HTML parser encounters &lt;script type="module"&gt; with a src attribute but doesn’t execute until after the document has been completely parsed. 
+            - Modules are also executed in the order in which they appear in the HTML file.
+            - even if one module contains inline code instead of specifying src.
+
+    <h4>Understanding ECMAScript 7:</h4>
+    - ECMAScript 2016 was finalized in March 2016 and contained only three additions to the language: a new mathematical operator, a new array method, and a new syntax error.
+    - 1. The Exponentiation Operator: let result = 5 ** 2; //25
+    - The exponentiation operator has the highest precedence of all binary operators in JavaScript 
+    - 2. Array.prototype.includes() Method
+    - 3. ECMAScript 2016 makes it illegal to have a "use strict"directive inside of a function whose parameters are either destructured or have default values. -->
+
+  </div>
+</div>

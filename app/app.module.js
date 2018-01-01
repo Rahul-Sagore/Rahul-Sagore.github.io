@@ -87,6 +87,7 @@ angular.module('RahulApp').constant('APP_REQUIRES', {
     // 'homeController': ['app/components/home/homeController.js'],
     'workController': ['app/components/work/workController.js'],
     'blogController': ['app/components/blog/blogController.js'],
+    'highlight': ['assets/js/highlight.pack.js'],
   },
   // Angular based script (use the right module name)
   modules: [
