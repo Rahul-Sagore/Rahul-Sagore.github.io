@@ -304,6 +304,7 @@
 
 .blog-card .mdl-card__title {
   padding: 0;
+  max-height: 162px;
 }
 
 

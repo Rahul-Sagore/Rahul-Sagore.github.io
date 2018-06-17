@@ -13,18 +13,24 @@
       article_url = $state.params.blog_url;
       $rootScope.SEO.title = article_url.split("-").join(" ");
     }
+    blogURLPrefix = './#/blog/';
 
     blogVm.blogMeta = [
       {
         title: "Vertical tabs with Material Design Lite",
         image: "/assets/img/blog/material.jpg",
-        url: "vertical-tabs-with-material-design-lite",
+        url: blogURLPrefix + "vertical-tabs-with-material-design-lite",
       },
       {
         title: "ES6 Notes",
         image: "/assets/img/blog/ES6.png",
-        url: "es6-notes",
+        url: blogURLPrefix + "es6-notes",
       },
+      {
+        title: "Develop Chrome Extension",
+        image: "/assets/img/blog/chromelogo.jpg",
+        url: "https://medium.com/@Rahulx1/creating-and-publishing-chrome-extension-519f73c36f6c",
+      }
     ];
 
     init();
