@@ -476,4 +476,8 @@
     color: #fff;
     height: 150px;
   }
+
+  .mdl-layout__header-row .mdl-navigation__link {
+    display: none;
+  }
 }
