@@ -34,7 +34,7 @@
       {
         title: "Revealing Module Pattern: tips",
         image: "/assets/img/blog/chromelogo.jpg",
-        url: blogURLPrefix + "revealing-module-pattern-tips-practice",
+        url: blogURLPrefix + "revealing-module-pattern-tips",
       }
     ];
 
