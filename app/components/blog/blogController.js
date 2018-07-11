@@ -30,6 +30,11 @@
         title: "Develop Chrome Extension",
         image: "/assets/img/blog/chromelogo.jpg",
         url: "https://medium.com/@Rahulx1/creating-and-publishing-chrome-extension-519f73c36f6c",
+      },
+      {
+        title: "Revealing Module Pattern: tips",
+        image: "/assets/img/blog/chromelogo.jpg",
+        url: blogURLPrefix + "revealing-module-pattern-tips",
       }
     ];
 
@@ -69,8 +74,8 @@
         DISQUS.reset({
                 reload: true,
                 config: function () {  
-                  this.page.identifier = post_url.url;  
-                  this.page.url = "http://rahul-sagore.github.io/#/blog/"+ post_url.url;
+                  this.page.identifier = post.url;  
+                  this.page.url = "http://rahul-sagore.github.io/#/blog/"+ post.url;
                 }
               });
       }, 1000);
