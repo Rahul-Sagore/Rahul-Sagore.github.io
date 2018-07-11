@@ -34,7 +34,7 @@
       {
         title: "Revealing Module Pattern: tips",
         image: "/assets/img/blog/chromelogo.jpg",
-        url: blogURLPrefix + "revealing-module-pattern-tips",
+        url: blogURLPrefix + "revealing-module-pattern-tips-practice",
       }
     ];
 
@@ -71,13 +71,13 @@
       $rootScope.SEO.title = post.title;
       $rootScope.SEO.description = post.title;
       setTimeout(function() {
-        // DISQUS.reset({
-        //         reload: true,
-        //         config: function () {  
-        //           this.page.identifier = post.url;  
-        //           this.page.url = "http://rahul-sagore.github.io/#/blog/"+ post.url;
-        //         }
-        //       });
+        DISQUS.reset({
+                reload: true,
+                config: function () {  
+                  this.page.identifier = post.url;  
+                  this.page.url = "http://rahul-sagore.github.io/#/blog/"+ post.url;
+                }
+              });
       }, 1000);
     }
 
