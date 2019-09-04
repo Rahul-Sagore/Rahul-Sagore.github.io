@@ -17,6 +17,16 @@
 
     blogVm.blogMeta = [
       {
+        title: "Understanding Event Loop, Call Stack & Job Queue",
+        image: "https://miro.medium.com/max/1600/1*iHhUyO4DliDwa6x_cO5E3A.gif",
+        url: "https://medium.com/@Rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd",
+        newTab: true,
+      }, {
+        title: "Develop Chrome Extension",
+        image: "/assets/img/blog/chromelogo.jpg",
+        url: "https://medium.com/@Rahulx1/creating-and-publishing-chrome-extension-519f73c36f6c",
+      },
+      {
         title: "Vertical tabs with Material Design Lite",
         image: "/assets/img/blog/material.jpg",
         url: blogURLPrefix + "vertical-tabs-with-material-design-lite",
@@ -26,11 +36,6 @@
         image: "/assets/img/blog/ES6.png",
         url: blogURLPrefix + "es6-notes",
       },
-      {
-        title: "Develop Chrome Extension",
-        image: "/assets/img/blog/chromelogo.jpg",
-        url: "https://medium.com/@Rahulx1/creating-and-publishing-chrome-extension-519f73c36f6c",
-      }
     ];
 
     init();

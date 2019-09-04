@@ -15,7 +15,7 @@
     <!-- Material Design core CSS -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.0/material.indigo-pink.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
         
     <link rel="stylesheet" href="assets/css/custom.css?v=20180411-1">
 
@@ -39,29 +39,43 @@
         <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
               <!-- Title -->
-              <span class="mdl-layout-title font-tangerine pointer" ui-sref="root">
-                  Rahul Sagore
+              <span class="mdl-layout-title base-font pointer" ui-sref="root">
+                <div class="logo">
+                  <div>RS</div>
+                </div>
+                <div class="ph-10 line-spacer logo-text">
+                  RAHUL SAGORE
+                  <div class="designation">Front-end Engineer</div>
+                </div>
               </span>
               <!-- Add spacer, to align navigation to the right -->
               <div class="mdl-layout-spacer"></div>
               <!-- Navigation -->
-              <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
-                  About
-              </a>
-              <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
-                  <i class="material-icons">laptop_mac</i> Work
-              </a>
-              <a class="mdl-navigation__link" ui-sref="blog" ng-class="{'active-page': currentPage == 'blog'}">
-                  <i class="material-icons">local_library</i> Blog
-              </a>
-              <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
-                  <i class="material-icons">my_location</i> Contact
-              </a> 
+              <div class="d-flex header-links">
+                <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
+                    About
+                </a>
+                <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
+                    <i class="material-icons mr-5">laptop_mac</i> Work
+                </a>
+                <a class="mdl-navigation__link" ui-sref="blog" ng-class="{'active-page': currentPage == 'blog'}">
+                    <i class="material-icons mr-5">local_library</i> Blog
+                </a>
+                <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
+                    <i class="material-icons mr-5">my_location</i> Contact
+                </a>
+              </div>
             </div>
           </header>        
           <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title font-tangerine" ui-sref="root">
-                Rahul Sagore
+            <span class="mdl-layout-title base-font pointer" ui-sref="root">
+              <div class="logo">
+                <div>RS</div>
+              </div>
+              <div class="ph-10 line-spacer logo-text">
+                RAHUL SAGORE
+                <div class="designation">Front-end Engineer</div>
+              </div>
             </span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
@@ -78,27 +92,6 @@
                 </a>  
             </nav>
           </div>
-          <!-- <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title bg-green font-tangerine" >
-                Rahul Sagore
-            </span>
-            <span class="designation bg-green padding-bottom10">
-                Frontend Developer
-            </span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" ui-sref="root" ng-class="{'active-page': currentPage == 'root'}">
-                    <i class="material-icons">tag_faces</i> That's Me
-                </a>
-                <a class="mdl-navigation__link" ui-sref="work" ng-class="{'active-page': currentPage == 'work'}">
-                    <i class="material-icons">laptop_mac</i> Work
-                </a>
-                <a class="mdl-navigation__link" href="">
-                    <i class="material-icons">local_library</i> Blog
-                </a> 
-                <a class="mdl-navigation__link" ui-sref="contact" ng-class="{'active-page': currentPage == 'contact'}">
-                    <i class="material-icons">my_location</i> Contact
-                </a>
-            </nav> -->
 
             <main data-ui-view="" class="mdl-layout__content">
             </main>

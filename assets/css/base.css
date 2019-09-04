@@ -1,3 +1,7 @@
+body, html {
+  font-family: 'Lato', serif;
+}
+
 ul {
   font-size: 15px;
 }
@@ -77,6 +81,7 @@ ul {
 .mb-200 {margin-bottom: 200px}
 
 .ml-0  , .mh-0  {margin-left: 0px}
+.ml-5  , .mh-5  {margin-left: 5px}
 .ml-10 , .mh-10 {margin-left: 10px}
 .ml-20 , .mh-20 {margin-left: 20px}
 .ml-30 , .mh-30 {margin-left: 30px}
@@ -84,6 +89,7 @@ ul {
 .ml-50 , .mh-50 {margin-left: 50px}
 
 .mr-0  , .mh-0  {margin-right: 0px}
+.mr-5  , .mh-5  {margin-right: 5px}
 .mr-10 , .mh-10 {margin-right: 10px}
 .mr-20 , .mh-20 {margin-right: 20px}
 .mr-30 , .mh-30 {margin-right: 30px}
